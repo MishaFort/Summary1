@@ -1,6 +1,19 @@
 .main-title {
-  background-color: blueviolet; border: 4px solid black;
+  background-color: blueviolet;
+  border: 4px solid black;
 }
-.section-balls{
+.section-balls {
   background-color: aqua;
+}
+
+.button {
+  color: #faf4ea;
+  background-color: #819b57;
+  border: 2px solid #819b57;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.button:hover{
+    color: #465929;
+    background-color: transparent;
 }

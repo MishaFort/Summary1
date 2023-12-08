@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS theory</title>
-
     <style>
-        h1 {
-            background-color:blueviolet;
-        }
+      h1 {
+        background-color: blueviolet;
+      }
     </style>
-
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
     <h1 class="main-title">CSS</h1>
     <section class="section-balls">
-        <h2>MY BALLS</h2>
+      <h2>MY BALLS</h2>
     </section>
-</body>
-</html>
 
+    <nav>
+      <button class="button" type="button">Замовити дзвінок</button>
+    </nav>
+  </body>
+</html>
 
 <!-- CSS - стили к веб-странице. 
     user agent stylesheet - таблица стилей агента пользователя (браузера) - заданные по дефолту браузером стили
@@ -31,7 +32,7 @@
     Внешний способ ЛУЧШЕ ВСЕГО ИСПОЛЬЗОВАТЬ!        чтобы не засорять скелет (html файл)
         Внешний файл styles.css надо еще подключить к нашему html файлу         <link rel="stylesheet" href="./styles.css">
         Для стилей создаем отдельную папку css
-    Стиль можно задать: 
+    Стиль (селектор) можно задать: 
         -определенному тегу
         -классу         назначить элементам класс и задавать стиль этому классу <h1 class = "main-title">Сучасна пекарня</h1>
             .main-title{border...}          Основной способ
@@ -59,6 +60,11 @@
 
     Для кнопок задают обычно только ховер hover. Но там уже как дизайнер решил.
 
+    Каскадность - механизм, который определяет конечные свойства элемента, если к нему задано несколько CSS-правил (стилей). 
+        КТО ПОСЛЕДНИЙ - ТОТ СТИЛЬ И БУДЕТ (тот и выиграл). 
+
+    Специфичность - вес селектора (стиля). Если есть более "точное" (специфичное) указание стиля 
+    (например не .button , a button.button [type="button"] ), то браузер отобразит более конкретный стиль, ибо его вес больше.
 
 
 
