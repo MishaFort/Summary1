@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: burlywood;
+  padding: 10px;
+  border: 5px solid darkred;
+  /* margin: 10px auto; */
+  margin: 10px;
+}
+/* .box:not(:last-child, :first-child) {
+  background-color: gold;
+}
+.box:nth-child(3),
+.box:nth-child(4) {
+  background-color: darkcyan;
+} */
+.box:nth-child(4n + 4) {
+  background-color: gold;
+}
