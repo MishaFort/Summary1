@@ -7,15 +7,39 @@
     <link rel="stylesheet" href="css/test.css" />
   </head>
   <body>
-    <div class="box-parent">
-      <div class="box">1</div>
-      <div class="box">2</div>
-      <div class="box">3</div>
-      <div class="box">4</div>
-      <div class="box">5</div>
-      <div class="box">6</div>
-      <div class="box">7</div>
-      <div class="box">8</div>
+    <div class="flex-container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
     </div>
   </body>
 </html>
@@ -121,6 +145,34 @@ Cлева и справа значения фиксировать нельзя, 
     МАРЖИНЫ ЗАДАЕМ ПЕРЕД РАЗМЕРАМИ
 
     ДЛЯ БОДИ МАРЖИН ТОЖЕ УДАЛИТЬ 
+
+
+
+    FLEXBOX
+ Чтобы разместить элементы определенным образом на странице надо этот флекс. Короче это Гибкое (flex) управление элементами.
+/Дабы на мобилках сайт отображался так, как был сконструирован, а не просто уменьшался/
+Flexbox - Css-модуль, который определяет размещения, выравнивания и разпределения пространства между элементами в контейнере.
+
+  Flex-контейнер
+ Властивості контейнера:
+    ➔ display            -       display: flex; - элементы выравниваются по горизонтали (не путать с инлайном) - ЭТО ГЛАВНАЯ ОСЬ
+    ➔ flex-direction     -       меняет оси - меняет направление (с горизонтали на вертикаль например). row-reverse - с право налево. column-reverse.
+    ➔ justify-content    -       выравнивает элементы на оси. justify-content: center / flex-start (по умолчанию) / flex-end / 
+space-around - расстояние между элементами расчитывается равномерно по оси, добавляя половину расстояния по краям страницы /
+space-evenly - тоже самое, но края не половина рассстояния, а полное.
+space-between - тоже самое, но без краев! - ЭТО ЧАЩЕ ВСЕГО - например текст и картинку по сторонам надо расставить, то есть когда 2 элемента.
+    ➔ align-items        -       ТО ЖЕ ЧТО И justify, только выравнивает элементы вдоль поперечной оси. Чтобы увидеть, надо элементы разных размеров.
+По умолчанию align-items: stretch   -   элементы растягиваются(/впихуются?) от начала до конца отцовского элемента.
+В случае старт эл-т просто ставится на начало оси. Мы будем юзать ТОЛЬКО ЦЕНТЕР (в основном).
+    ➔ flex-wrap          -       Если элементов много, они будут уменьшаться чтобы вместится на оси. flex-wrap: wrap - эл-ты перейдут на новую строку.
+По умолчанию flex-wrap:nowrap; 
+    ➔ align-content      -       Редко. Выравнивание вдоль поперечной оси в случае если это позволяет флекс контейнер
+
+
+
+
+
+
 
 
 
