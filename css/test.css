@@ -22,7 +22,7 @@ p {
 
 .item {
   display: inline-block;
-  width: 100px;
+  flex-basis: 100px;
   height: 100px;
   background-color: burlywood;
   padding: 10px;
@@ -37,10 +37,19 @@ p {
 .box:nth-child(4) {
   background-color: darkcyan;
 } */
+
+.item:nth-child(2){
+  flex-grow: 1;
+}
+.item:nth-child(23){
+  flex-grow: 1;
+}
 .item:nth-child(4n + 4) {
   background-color: gold;
+  flex-basis: 70px;
+  height: 70px;
 }
-.item:nth-child(2){
+.item:nth-child(3){
   width: 50px;
   height: 50px;
 }
