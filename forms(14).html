@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<!--
+        Формы 
+     Формы позволяют получать информацию от посетителей веб-страницы.
+    Состоят из двух частей: интерфейс пользователя и сервер (бэкенд)
+
+     <form> – контейнер для группы связанных элементов формы.
+    Имеет следующие необязательные атрибуты:
+    ➔ name – уникальное на текущей веб-странице имя формы.
+    ➔ autocomplete (off/on) – определяет, может ли браузер автоматически заполнять значение всех элементов формы
+    (если ранее вводили данные, то можно выбрать кликом, а не прописывать заново).
+    ➔ novalidate – говорит браузеру не проверять валидность введенных данных при отправке формы
+    (не будет ошибку выдавать если вместо почты ввели телефон например).
+    ➔ action – путь к файлу или абсолютный url к файлу, который обрабатывает эту форму.
+
+     <input> – универсальный элемент для создания разнообразных полей ведения. Тип поля определяется атрибутом type:
+
+        <input type="text" />
+
+    Основные значения:
+    ➔ text
+    ➔ email    (отличие от текста: меняется клавиатура на мобилках и есть @)
+    ➔ password (********)
+    ➔ tel      (тоже меняется клава на мобилках)
+    ➔ number   (стрелки появляются, нажав на которые увеличиваем/уменьшаем значения)
+    ➔ radio (если не ставить название одинаковое, то выбрать можно несколько значений (БЕЗ ПЕРЕВЫБОРА), а сейчас одно):
+    /Используем когда один вариант надо выбрать!/
+
+        <label for="small">Small</label>
+        <input type="radio" id="small" name="size">
+
+        <label for="medium">Medium</label>
+        <input type="radio" id="medium" name="size">
+
+        <label for="large">Large</label>
+        <input type="radio" id="large" name="size">
+
+    ➔ checkbox    (тоже что и радио, но теперь просто галочки ставим как хотим - НО НАЗВАНИЯ УЖЕ НАДО ПИСАТЬ НЕ ОДНО И 
+    ТОЖЕ, А РАЗНОЕ! чтобы проблем не было в базе данных)
+    ➔ range    (выбираем значение с помощью ползунка)
+    ➔ datetime-local
+    ➔ file
+    Все остальные типы можно посмотреть на сайте mdn (google: all input types).
+
+
+        <label> – связывает описание с интерактивным элементом формы. /INLINE TYPE/
+    Текст метки должен быть связан с элементом как визуально, так и логично.
+    Через айди (чаще):
+    <label for="user-name">Введіть ваше ім'я</label>
+    <input type="text" id="user-name" name="user-name" />
+    Просто внутри тега положить:
+    <label>
+     Введіть ваше ім'я
+     <input type="text" />
+    </label>
+
+     КНОПКА УЖЕ БУДЕТ С ТАЙПОМ |submit|
+        <button type="submit">PUSH</button>
+
+
+        <textarea> – создает многострочное поле для ввода большого количества текста.
+    Например, это может быть поле для обратной связи, комментария, поста в соцсетях, уточнение деталей заказа и т.п.
+    Колонки и столпцы хоть и задает ВсКод, но задавать надо ширину и высоту элемента! Так шо удаляем:
+
+     <label for="user-comment">Ваш комент, СЕР:</label>
+        <textarea class="user-comment" name="user-comment" id="user-comment"></textarea>
+    .user-comment{width: 200px; height: 80px; resize: none;} - resize - чтобы нельзя было расстягивать 
+    область комментария!
+
+
+        <select> – выпадающее меню. Является альтернативой радио-кнопкам, поскольку по умолчанию позволяет выбрать ОДИН 
+    из многих вариантов. Value - значение, которое отправляется на сервер (логика должна быть, чтобы понять можно было
+    что именно отправили на сервер).
+     Содержит набор элементов <option> с атрибутом value
+          <select name="" id="">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+
+
+          <fieldset> - это контейнер для группировки нескольких связанных элементов в форме (инпутов),
+    а вложенный <legend> – выполняет роль заголовка группы.
+    Группировка связанных элементов делает формы более понятными для пользователей.
+        <fieldset>
+            <legend>Додаткова інформація</legend>
+            <select name="" id="">
+              <option value="">Small</option>
+              <option value="">Medium</option>
+              <option value="">Large</option>
+            </select>
+        </fieldset>
+    Можно добавить фиелдсету и легенде класс чтобы прописать свой стиль (убрать бордер, падинг и т.д.)
+
+
+    Высота инпута задается падингами.
+
+    outline: none; - чтобы при фокусе при поставили свой цвет рамки, а не браузер свой ставил по дефолту.
+
+    Лейбел (заголовок инпута) надо прописывать даже если нет надобности - ПРОСТО СПРЯТАТЬ с помощью visually-hidden . 
+    
+    Подсказка внутри пишется так:
+    <input placeholder="Телефон"/>
+    .form-input::placeholder{   -   псевдоэлемент это (а не псевдокласс)
+  color: var(--color-secondary-dark);
+}
+
+    Пример когда лейбел будет по центру как подсказка, а при нажатии плавно уйдет наверх и влево:
+    Способ 1)
+.form-input {
+  padding: 16px 42px;
+  width: 100%;
+  border: 1px solid var(--color-secondary-dark);
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+    <div class="form-field-relative">
+            <input
+              class="form-input"
+              type="text"
+              name="user-name"
+              id="user-name2"
+            />
+            <label class="form-label-absolute" for="user-name2">ГангМид</label>
+          </div>
+
+.form-field-relative {
+  position: relative;
+  margin-bottom: 32px;
+}
+.form-label-absolute {
+  position: absolute;
+  top: 16px;
+  left: 42px;
+  /*font-weight: 400;*/
+  font-size: 16px;
+  line-height: 1.17;
+  color: var(--color-secondary-dark);
+  transition: transform 0.3s;
+}
+.form-input:focus + .form-label-absolute{
+  transform: translate(-36px, -36px);
+}
+
+    Способ 2)
+    focus-within - псевдокласс - срабатывает, когда внутри элемента есть элемент в фокусе.
+
+        <div class="form-field-relative">
+            <label class="form-label-absolute" for="user-name3">ГангРуну</label>
+            <input
+              class="form-input"
+              type="text"
+              name="user-name"
+              id="user-name3"
+            />
+        </div>
+
+.form-field-relative {
+  position: relative;
+  margin-bottom: 32px;
+}
+.form-label-absolute {
+  position: absolute;
+  top: 16px;
+  left: 42px;
+  /*font-weight: 400;*/
+  font-size: 16px;
+  line-height: 1.17;
+  color: var(--color-secondary-dark);
+  transition: transform 0.3s;
+}
+.form-field-relative:focus-within .form-label-absolute{     -       когда в первом элементе что-то будет в фокусе, 
+    то ко второму элементу (который прописан здесь) добавится характеристики ниже (что мы задали)
+  transform: translate(-36px, -36px);
+}
+ЕСЛИ НЕТУ ВТОРОГО ЭЛЕМЕНТА, ТО ПРИМЕНИТСЯ К САМОМУ ЭЛЕМЕНТУ (не было бы форм лейбел, то приминилось бы к форм фиелд).
+-->
