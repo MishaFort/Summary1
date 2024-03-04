@@ -96,4 +96,133 @@ Add device pixel ratio свехру справа вкладка. По дефу -
 srcset="image.jpg 1x, image@2x.jpg 2x"
 src="image.jpg"
 />
+
+Изображения это строчные элементы, поэтому в базе пишем img{display: block; max-width: 100%; height: auto;}
+max-width: 100%; - чтобы изображение могло масштабироваться, а не оставатся с фиксированными размерами.
+
+
+ Решение ховера: трансформ скейл увеличал z-index, поэтому надо сделать еще один контейнер и в него писать стили уже:
+         <ul class="formats-section__list">
+              <li class="formats-section__item">
+                <article class="format-card">
+                  <div class="format-card__container">
+                    <img
+                      class="format-card__image"
+                      src="./images/walrus-format.jpg"
+                      alt="Walrus format"
+                    />
+                    <h3 class="format-card__title" lang="en">Walrus</h3>
+                    <div class="format-card__text">
+                      <p>Площа: до 120 м2</p>
+                      <p>Меню: розширене меню</p>
+                      <p>
+                        Штат: 2 продавці-касири, 2 пекарі, 2 помічники пекаря, 2
+                        офіціанти-різнороби
+                      </p>
+                      <p>Посадкові місця: є</p>
+                    </div>
+                  </div>
+                </article>
+
+
+                .format-card {
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 444px;
+    padding: 24px;
+    background-image: linear-gradient(
+      180deg,
+      rgba(49, 38, 26, 0) 55.21%,
+      rgba(49, 38, 26, 0.71) 72.92%,
+      var(--color-primary-dark) 100%
+    );
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+
+
+
+  Для слайдера: google - slider js - https://swiperjs.com/
+  Use Swiper from CDN
+
+  pagination - нижние кнопочки маленькие
+  navigation - стрелочки (вправо-влево)
+
+  так как стрелки у нас не входят в слайдер, то надо менять название класса swiper на swiper-container (в js тоже!)
+  название кнопок в навигации тоже менять надо! 
+
+  API documentation: 
+  slidesPerView: 1,
+  spaceBetween: 10,
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    // when window width is >= 480px
+    480: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    },
+    // when window width is >= 640px
+    640: {
+      slidesPerView: 4,
+      spaceBetween: 40
+    }
+
+    Чтобы присвоить порядок маленьким нижним кнопкам: 
+     pagination: {
+    el: '.pagination',
+    bulletClass: 'pagination__button',    -     отвечает за добавление класса кнопке.
+    bulletActiveClass: 'pagination__button--active',   -    отвечает за цвет при переключении слайда.
+  },
+    Demos: inspect -  aria-label
+    <div class="pagination">
+                <button
+                  class="pagination__button"
+                  type="button"
+                  aria-label="Go to slide 1"
+                ></button>
+                <button
+                  class="pagination__button"
+                  type="button"
+                  aria-label="Go to slide 2"
+                ></button>
+                <button
+                  class="pagination__button"
+                  type="button"
+                  aria-label="Go to slide 3"
+                ></button>
+                <button
+                  class="pagination__button"
+                  type="button"
+                  aria-label="Go to slide 4"
+                ></button>
+              </div>
+           
+
+
+
+        img{
+          obkect-fit:cover;   -   будет сохранять свои пропорции, а не расстягиваться
+        }
+
+
+        Чтобы контент вышел за пределы контейнера можно добавить ОТРИЦАТЕЛЬНЫЕ МАРЖИНЫ
+
+        JS ИЩЕТ СЕЙЧАС ТОЛЬКО ПЕРВЫЙ ЭЛЕМЕНТ И С НИМ РАБОТАЕТ ТОЛЬКО. /можно прописать чтобы со всеми работал? - да, но это в js =) /
+
+
+        КОНЕЦ ВИДОСА ПЕРЕСМОТРЕТЬ ПЕРЕД РАБОТОЙ!
   -->
